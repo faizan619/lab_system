@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script> 
     <title>@yield('title') Lab System</title>
 </head>
@@ -13,8 +12,10 @@
         <div class="">
             @include('page.sidebar')
         </div>
-        <div class="flex-1">
+        <div class="flex-1 flex flex-col justify-between">
+            @include('component.header')
             @yield('body')
+            @include('component.footer')
         </div>
     </div>
 </body>
