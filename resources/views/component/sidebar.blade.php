@@ -11,8 +11,8 @@
         <ul class="px-1 font-semibold capitalize flex flex-col gap-3">
 
             <div class="">
-                <div class="shadow-sm shadow-blue-300 flex gap-3 py-2 rounded-md px-5 text-xl bg-blue-900 text-white">
-                    <p>#</p>
+                <div class="shadow-sm shadow-blue-300 flex items-center gap-3 py-2 rounded-md px-5 text-xl bg-blue-900 text-white">
+                    <p><img src="icons/reception.png" alt="icon1" class="w-6"></p>
                     <p>Reception Panel</p>
                 </div>
 
@@ -26,7 +26,7 @@
 
             <div class="">
                 <div class="shadow-sm shadow-blue-300 flex gap-3 py-2 rounded-md px-5 text-xl bg-blue-900 text-white">
-                    <p>#</p>
+                    <p><img src="icons/search.png" alt="icon1" class="w-6"></p>
                     <p>Search Panel</p>
                 </div>
 
@@ -58,7 +58,7 @@
 
             <div class="">
                 <div class="shadow-sm shadow-blue-300 flex gap-3 py-2 rounded-md px-5 text-xl bg-blue-900 text-white ">
-                    <p>#</p>
+                    <p><img src="icons/admin.png" alt="icon1" class="w-6"></p>
                     <p>Admin Panel</p>
                 </div>
 

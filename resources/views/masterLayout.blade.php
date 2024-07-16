@@ -10,11 +10,13 @@
 <body>
     <div class="h-screen flex">
         <div class="">
-            @include('page.sidebar')
+            @include('component.sidebar')
         </div>
         <div class="flex-1 flex flex-col justify-between">
             @include('component.header')
-            @yield('body')
+            <div class="h-full overflow-y-auto ">
+                @yield('body')
+            </div>
             @include('component.footer')
         </div>
     </div>
