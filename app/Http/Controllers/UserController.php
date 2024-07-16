@@ -13,8 +13,7 @@ class UserController extends Controller
             'password'=> 'required',
         ]);
         if(Auth::attempt($data)){
-            // return "Data is present";
-            return redirect()->route('home');
+            return redirect()->route('create');
         }
         else{
             return redirect()->route('login')->with('status','Please Enter Correct Credentails!');
