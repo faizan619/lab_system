@@ -12,7 +12,8 @@
             </div>
             <hr class="border-blue-500">
             <br>
-            <form action="" method="POST" class="w-full flex flex-col gap-7 p-2">
+            <form action="{{route('store')}}" method="POST" class="w-full flex flex-col gap-7 p-2">
+                @csrf
                 <div class="flex gap-5">
 
                     <div class="flex gap-3 flex-1">

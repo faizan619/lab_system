@@ -17,10 +17,10 @@
                 </div>
 
                 <div class="flex gap-2 ml-2 items-center">
-                    <p class="py-2 rounded-md hover:underline cursor-pointer">Patient's Registration</p>
+                    <p class="py-2 rounded-md hover:underline cursor-pointer"><a href="{{route('create')}}">Patient's Registration</a></p>
                 </div>
                 <div class="flex gap-2 ml-2 items-center">
-                    <p class="py-2 rounded-md hover:underline cursor-pointer">View Patient's Record</p>
+                    <p class="py-2 rounded-md hover:underline cursor-pointer"><a href="{{route('index')}}">View Patient's Record</a></p>
                 </div>
             </div>
 
