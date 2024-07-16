@@ -15,16 +15,16 @@ return new class extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->enum('user_id_type',['aadhar','pan']);
-            $table->string('user_card_no','20');
+            $table->string('user_card_no','20')->unique();
             $table->enum('title',['mr','mrs']);
             $table->string('fname','100');
-            $table->string('mname','50');
-            $table->string('lname','50');
+            $table->string('mname','50')->nullable();
+            $table->string('lname','50')->nullable();
             $table->date('dob');
             $table->integer('age');
             $table->enum('gender',['male','female']);
             $table->string('mobile1','15')->unique();
-            $table->string('mobile2','15');
+            $table->string('mobile2','15')->nullable();
             $table->enum('blood_group',['A+','A-','B+','B-','AB+','AB-','O+','O-']);
             $table->string('email','50')->unique()->nullable();
             $table->string('area','50');

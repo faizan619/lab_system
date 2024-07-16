@@ -12,7 +12,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        $patientdata = Patient::all();
+        return view('page.reception.view_patient',compact('patientdata'));
     }
 
     /**
@@ -28,7 +29,49 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id_type'=>'required',
+            'user_card_no'=> 'required|alpha_num',
+            'title'=> 'required',
+            'fname'=> 'required',
+            'lname'=> 'required',
+            'mname'=> 'required',
+            'dob'=> 'required|date',
+            'age'=> 'required|numeric',
+            'gender'=> 'required',
+            'mobile1'=> 'required|numeric',
+            'blood_group'=> 'required',
+            'mobile2'=> 'nullable|numeric',
+            'email'=> 'nullable|email',
+            'area'=> 'required',
+            'address'=> 'required',
+        ]);
+        $patient = new Patient();
+        $patient->user_id_type = $request->user_id_type;
+        $patient->user_card_no = $request->user_card_no;
+        $patient->title = $request->title;
+        $patient->fname = $request->fname;
+        $patient->mname = $request->mname;
+        $patient->lname = $request->lname;
+        $patient->dob = $request->dob;
+        $patient->age = $request->age;
+        $patient->gender = $request->gender;
+        $patient->mobile1 = $request->mobile1;
+        $patient->mobile2 = $request->mobile2;
+        $patient->blood_group = $request->blood_group;
+        $patient->email = $request->email;
+        $patient->area = $request->area;
+        $patient->address = $request->address;
+        $patient->save();
+        return redirect()->route('index')->with('status','Data Successfully Stored!');
+
+
+
+
+
+
+
+        // return $request;
     }
 
     /**
