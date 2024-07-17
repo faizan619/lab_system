@@ -15,10 +15,16 @@
                 </p>
             @endif
             <div class="flex flex-col justify-center items-center">
-                <div class="my-5 flex justify-between gap-5 w-[60%]">
+
+                <form action="{{ route('patient.search') }}" method="GET" class="my-5 flex justify-between gap-5 w-[60%]">
+                    <input type="text" name="query" id="search" placeholder="Search by Aadhar No or Phone No" class="p-2 border w-full rounded-md">
+                    <button type="submit" class="px-5 py-1 rounded-md bg-blue-700 text-white">Search</button>
+                </form>
+
+                {{-- <div class="my-5 flex justify-between gap-5 w-[60%]">
                     <input type="text" name="search" id="search" placeholder="Search by Aadhar No or Phone No" class="p-2 border w-full rounded-md">
                     <button class="px-5 py-1 rounded-md bg-blue-700 text-white">Search</button>
-                </div>
+                </div> --}}
                 <table class="border w-full ">
                     <thead class="bg-black text-white">
                         <tr>
@@ -47,7 +53,10 @@
                                 </td>
                             </tr>
                         @empty
-                            <p>NO Data Available</p>
+                            {{-- <p>NO Data Available</p> --}}
+                            <tr>
+                                <td colspan="5" class="text-center">No Patient Data Available</td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>

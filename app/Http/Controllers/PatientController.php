@@ -105,4 +105,18 @@ class PatientController extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $patientdata = [];
+
+        if ($query) {
+            $patientdata = Patient::where('user_card_no', 'LIKE', "%{$query}%")
+                ->orWhere('mobile1', 'LIKE', "%{$query}%")
+                ->orWhere('fname', 'LIKE', "%{$query}%")
+                ->get();
+        }
+
+        return view('patient.view_patient', compact('patientdata'));
+    }
 }
