@@ -15,7 +15,6 @@
             <form action="{{ route('store') }}" method="POST" class="w-full flex flex-col gap-7 p-2">
                 @csrf
                 <div class="flex gap-5">
-
                     <div class="flex gap-3 flex-1">
                         <label for="patient_no" class="w-full flex flex-col gap-2">
                             <p class="font-semibold">Patient's id</p>
@@ -29,7 +28,7 @@
                                 <option value="pan">Pan Card</option>
                             </select>
                             @if ($errors->any())
-                                <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                                <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                     @error('user_id_type')
                                         {{ $message }}
                                     @enderror
@@ -46,7 +45,7 @@
 
 
                             @if ($errors->any())
-                                <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                                <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                     @error('user_card_no')
                                         {{ $message }}
                                     @enderror
@@ -67,7 +66,7 @@
                         </select>
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('title')
                                     {{ $message }}
                                 @enderror
@@ -83,7 +82,7 @@
                                 id="fname">
 
                             @if ($errors->any())
-                                <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                                <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                     @error('fname')
                                         {{ $message }}
                                     @enderror
@@ -98,7 +97,7 @@
                                 placeholder="Middle Name" id="mname">
 
                             @if ($errors->any())
-                                <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                                <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                     @error('mname')
                                         {{ $message }}
                                     @enderror
@@ -113,7 +112,7 @@
                                 id="lname">
 
                             @if ($errors->any())
-                                <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                                <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                     @error('lname')
                                         {{ $message }}
                                     @enderror
@@ -132,7 +131,7 @@
                         <input type="date" name="dob" id="dob" value="{{old('dob')}}" class="border p-1 px-2 rounded-md">
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('dob')
                                     {{ $message }}
                                 @enderror
@@ -147,7 +146,7 @@
                             placeholder="Age">
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('age')
                                     {{ $message }}
                                 @enderror
@@ -164,7 +163,7 @@
                         </select>
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('gender')
                                     {{ $message }}
                                 @enderror
@@ -179,7 +178,7 @@
                             placeholder="Mobile">
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('mobile1')
                                     {{ $message }}
                                 @enderror
@@ -198,7 +197,7 @@
                             placeholder="Number">
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('mobile2')
                                     {{ $message }}
                                 @enderror
@@ -221,7 +220,7 @@
                         </select>
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('blood_group')
                                     {{ $message }}
                                 @enderror
@@ -236,7 +235,7 @@
                             placeholder="Email">
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('email')
                                     {{ $message }}
                                 @enderror
@@ -252,7 +251,7 @@
                             placeholder="Area">
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('area')
                                     {{ $message }}
                                 @enderror
@@ -268,7 +267,7 @@
                         <textarea name="address" id="address" value="{{old('address')}}" class="border rounded-md p-1 px-2 w-full"></textarea>
 
                         @if ($errors->any())
-                            <span class="text-red-700 px-3 rounded-md mt-[-15px]">
+                            <span class="text-red-700 px-3 rounded-md mt-[-15px] text-sm ">
                                 @error('address')
                                     {{ $message }}
                                 @enderror
