@@ -13,7 +13,7 @@ class PatientController extends Controller
     public function index()
     {
         $patientdata = Patient::all();
-        return view('page.reception.view_patient',compact('patientdata'));
+        return view('patient.view_patient',compact('patientdata'));
     }
 
     /**
@@ -21,7 +21,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('page.reception.patient_registration');
+        return view('patient.patient_registration');
     }
 
     /**
