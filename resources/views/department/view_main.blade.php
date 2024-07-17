@@ -15,7 +15,7 @@
                 </p>
             @endif
             <div class="mt-5 flex flex-col justify-center items-center">
-                <div class="my-5 flex justify-between gap-5 w-[70%]">
+                <div class="mb-2 flex justify-between gap-5 w-[70%]">
                     <input type="text" name="search" id="search" placeholder="Search by Main Department Name" class="p-2 border w-full rounded-md">
                     <button class="px-5 py-1 rounded-md bg-blue-700 text-white">Search</button>
                 </div>
