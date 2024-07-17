@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sub_departments', function (Blueprint $table) {
+        Schema::create('subs', function (Blueprint $table) {
             $table->id();
             $table->string('sub_department_name',50);
             $table->foreignId('dept_id')->references('id')->on('departments')->cascadeOnDelete()->cascadeOnUpdate();

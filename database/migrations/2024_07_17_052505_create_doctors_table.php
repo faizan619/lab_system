@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email',50)->unique();
             $table->string('specialist',30);
             $table->string('mobile',20)->unique();
-            $table->string('address',50)->nullable();
+            $table->string('address',150)->nullable();
         });
     }
 
