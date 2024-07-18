@@ -105,20 +105,5 @@ class TestController extends Controller
                 ->make(true);
         }
     }
-    // public function search(Request $request)
-    // {
-    //     $query = $request->input('query');
-    //     $tests = [];
-
-    //     if ($query !== "") {
-    //         $tests = Test::where('test_name', 'LIKE', "%{$query}%")
-    //             ->get();
-    //     }
-    //     else{
-    //         $data = Test::all();
-    //     }
-
-    //     return view('test.view', compact('tests'));
-    // }
 
 }

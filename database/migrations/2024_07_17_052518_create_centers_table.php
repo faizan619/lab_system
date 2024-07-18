@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('centers', function (Blueprint $table) {
             $table->id();
             $table->string('center_name',100);
-            $table->string('center_short_name',50);
-            $table->string('center_address',200);
+            $table->string('center_short_name',70)->nullable();
+            $table->string('center_address',200)->nullable();
             $table->string('center_mobile1',20);
             $table->string('center_mobile2',20)->nullable();
         });

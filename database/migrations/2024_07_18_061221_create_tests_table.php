@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->string('test_name',100);
-            $table->string('short_name',100);
-            $table->string('tech_name',100);
+            $table->string('short_name',100)->nullable();
+            $table->string('tech_name',100)->nullable();
             $table->integer('test_price');
             $table->foreignId('sub_dept_id')->references('id')->on('subs')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('center_id')->references('id')->on('centers')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('seperate',10);
+            $table->string('seperate',10)->nullable();
         });
     }
 

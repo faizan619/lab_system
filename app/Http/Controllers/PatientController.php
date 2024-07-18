@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class PatientController extends Controller
 {
@@ -14,6 +15,7 @@ class PatientController extends Controller
     {
         $patientdata = Patient::all();
         return view('patient.view_patient',compact('patientdata'));
+        // return view('patient.view_patient');
     }
 
     /**
@@ -105,21 +107,27 @@ class PatientController extends Controller
     {
         //
     }
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $patientdata = [];
+    public function getData(Request $request) {
+        if ($request->ajax()) {
+            $query = $request->input('query');
+            $data = Patient::query();
 
-        if ($query !== "") {
-            $patientdata = Patient::where('user_card_no', 'LIKE', "%{$query}%")
-                ->orWhere('mobile1', 'LIKE', "%{$query}%")
-                ->orWhere('fname', 'LIKE', "%{$query}%")
-                ->get();
-        }
-        else{
-            $data = Patient::all();
-        }
+            if ($query !== "") {
+                $data->where('user_card_no', 'LIKE', "%{$query}%")
+                    ->orWhere('mobile1', 'LIKE', "%{$query}%")
+                    ->orWhere('fname', 'LIKE', "%{$query}%");
+            }
 
-        return view('patient.view_patient', compact('patientdata'));
+            return DataTables::of($data)
+                ->addColumn('action', function ($row) {
+                    return '<div class="flex gap-5">
+                        <button class="px-2 border text-sm py-1 hover:bg-blue-800 rounded-md bg-blue-700 text-white"><i class="fa-regular fa-address-card fa-xl"></i></button>
+                        <button class="px-3 border text-sm py-1 hover:bg-green-800 rounded-md bg-green-700 text-white"><i class="fa-solid fa-inbox fa-lg"></i> </button>
+                        <button class="px-3 border text-sm py-1 hover:bg-gray-800 rounded-md bg-gray-700 text-white"><i class="fa-solid fa-receipt fa-lg"></i></button>
+                    </div>';
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
 }

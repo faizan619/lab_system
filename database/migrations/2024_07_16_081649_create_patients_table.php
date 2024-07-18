@@ -29,7 +29,8 @@ return new class extends Migration
             $table->string('email','50')->unique()->nullable();
             $table->string('area','50');
             $table->text('address')->nullable();
-            $table->date('register_date')->default(DB::raw('CURRENT_DATE'));
+            // $table->date('register_date')->default(DB::raw('CURRENT_DATE'));
+            $table->date('register_date')->default(now());
         });
     }
 
