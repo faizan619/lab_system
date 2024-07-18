@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('dob');
             $table->integer('age');
             $table->enum('gender',['male','female']);
-            $table->string('mobile1','15')->unique();
+            $table->string('mobile1','20')->unique();
             $table->string('mobile2','15')->nullable();
             $table->enum('blood_group',['A+','A-','B+','B-','AB+','AB-','O+','O-']);
             $table->string('email','50')->unique()->nullable();
