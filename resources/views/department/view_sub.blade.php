@@ -39,7 +39,10 @@
                                 </td>
                             </tr>
                         @empty
-                            <p>No Sub Department Registered</p>
+                            {{-- <p>No Sub Department Registered</p> --}}
+                            <tr>
+                                <td colspan="3" class="text-center">No Department Data Available</td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>

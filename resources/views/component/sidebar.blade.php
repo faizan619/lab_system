@@ -51,12 +51,12 @@
                         class="shadow-sm shadow-blue-300 flex justify-between items-center cursor-pointer py-2 rounded-md px-3 text-md bg-blue-900 text-white ">
                         <div class="flex gap-3">
                             <p><img src="/icons/admin.png" alt="icon1" class="w-6"></p>
-                            <p>Admin Panel</p>
+                            <p>Master Panel</p>
                         </div>
                         <img src="/icons/dropdown.png" alt="dropdown" class="w-5 h-5">
                     </summary>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">User Login Log</p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Test Name</p>
+                    {{-- <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">User Login Log</p> --}}
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('test.index')}}">Test Name</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Test Parameter</p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('dept.index') }}">Main Department</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('subdept.index') }}">Sub Department</a></p>
@@ -65,7 +65,7 @@
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('center_ref_form') }}">Create Center Reference</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('dept.create') }}">Add Department</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('subdept.create') }}">Add Sub Department</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Add New Test</p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('test.create')}}">Add New Test</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Add Test Parameter</p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Add Help Value</p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Test Rate</p>
