@@ -28,7 +28,7 @@ return new class extends Migration
             $table->enum('blood_group',['A+','A-','B+','B-','AB+','AB-','O+','O-']);
             $table->string('email','50')->unique()->nullable();
             $table->string('area','50');
-            $table->text('address');
+            $table->text('address')->nullable();
             $table->date('register_date')->default(DB::raw('CURRENT_DATE'));
         });
     }
