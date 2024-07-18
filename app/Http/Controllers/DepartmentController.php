@@ -12,7 +12,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $data = Department::all();
+        // $data = Department::all();
+        $data = Department::paginate(5);
         return view('department.view_main',compact('data'));
     }
 
@@ -77,12 +78,13 @@ class DepartmentController extends Controller
         $data = [];
 
         if($query !== "") {
-            $data = Department::where('department_name', 'LIKE', "%{$query}%")->get();
+            // $data = Department::where('department_name', 'LIKE', "%{$query}%")->get();
+            $data = Department::where('department_name', 'LIKE', "%{$query}%")->paginate(5);
         }
         else{
             $data = Department::all();
         }
 
-        return view('department.view_main', compact('data'));
+        return view('table.maindept', compact('data'));
     }
 }

@@ -25,7 +25,7 @@
                     <thead class="bg-black text-white w-full">
                         <tr>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Id</td>
-                            <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Card No</td>
+                            <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Card_No</td>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Patient</td>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Register_Date</td>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Action</td>
