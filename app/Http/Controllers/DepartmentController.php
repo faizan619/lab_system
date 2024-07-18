@@ -50,7 +50,7 @@ class DepartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Department $department)
+    public function edit(string $id)
     {
         //
     }
@@ -66,8 +66,23 @@ class DepartmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Department $department)
+    public function destroy(string $id)
     {
-        //
+        Department::destroy($id);
+        return redirect()->route('dept.index');
+    }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $data = [];
+
+        if($query !== "") {
+            $data = Department::where('department_name', 'LIKE', "%{$query}%")->get();
+        }
+        else{
+            $data = Department::all();
+        }
+
+        return view('department.view_main', compact('data'));
     }
 }

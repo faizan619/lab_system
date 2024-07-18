@@ -40,7 +40,7 @@ class SubController extends Controller
         $sub->sub_department_name = $request->sub_department_name;
         $sub->dept_id = $request->dept_id;
         $sub->save();
-        return redirect()->route('dept.index')->with('status','Sub Department Added succesfully!');
+        return redirect()->route('subdept.index')->with('status','Sub Department Added succesfully!');
     }
 
     /**

@@ -34,8 +34,8 @@ class PatientController extends Controller
             'user_card_no'=> 'required|alpha_num',
             'title'=> 'required',
             'fname'=> 'required',
-            'lname'=> 'required',
-            'mname'=> 'required',
+            'lname'=> 'nullable',
+            'mname'=> 'nullable',
             'dob'=> 'required|date',
             'age'=> 'required|numeric',
             'gender'=> 'required',
@@ -44,7 +44,7 @@ class PatientController extends Controller
             'mobile2'=> 'nullable|numeric',
             'email'=> 'nullable|email',
             'area'=> 'required',
-            'address'=> 'required',
+            'address'=> 'nullable',
         ]);
         $patient = new Patient();
         $patient->user_id_type = $request->user_id_type;
@@ -110,11 +110,14 @@ class PatientController extends Controller
         $query = $request->input('query');
         $patientdata = [];
 
-        if ($query) {
+        if ($query !== "") {
             $patientdata = Patient::where('user_card_no', 'LIKE', "%{$query}%")
                 ->orWhere('mobile1', 'LIKE', "%{$query}%")
                 ->orWhere('fname', 'LIKE', "%{$query}%")
                 ->get();
+        }
+        else{
+            $data = Patient::all();
         }
 
         return view('patient.view_patient', compact('patientdata'));
