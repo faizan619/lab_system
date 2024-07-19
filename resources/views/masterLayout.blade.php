@@ -7,6 +7,8 @@
     <script src="/logic/tailwind.js"></script>
     <link rel="stylesheet" href="/logic/jquery.css">
     <script src="/logic/jquery1.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+
     <title>@yield('title') Lab System</title>
 </head>
 <body>
@@ -24,5 +26,6 @@
     </div>
     <script src="/logic/fontawosome.js"></script>
     <script src="/logic/datatables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
 </body>
 </html>

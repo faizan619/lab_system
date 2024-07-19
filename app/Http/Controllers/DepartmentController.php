@@ -59,9 +59,15 @@ class DepartmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'department_name'=>['required','string']
+        ]);
+        $data = Department::find($id);
+        $data->department_name = $request->department_name;
+        $data->save();
+        return redirect()->route('dept.index')->with('status','Updated Successfully!');
     }
 
     /**
