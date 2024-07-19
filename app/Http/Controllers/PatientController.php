@@ -13,7 +13,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patientdata = Patient::all();
+        // $patientdata = Patient::all();
+        $patientdata = Patient::paginate(5);
         return view('patient.view_patient',compact('patientdata'));
         // return view('patient.view_patient');
     }
@@ -107,27 +108,51 @@ class PatientController extends Controller
     {
         //
     }
-    public function getData(Request $request) {
-        if ($request->ajax()) {
-            $query = $request->input('query');
-            $data = Patient::query();
+    // public function getData(Request $request) {
+    //     if ($request->ajax()) {
+    //         $query = $request->input('query');
+    //         $data = Patient::query();
 
-            if ($query !== "") {
-                $data->where('user_card_no', 'LIKE', "%{$query}%")
-                    ->orWhere('mobile1', 'LIKE', "%{$query}%")
-                    ->orWhere('fname', 'LIKE', "%{$query}%");
-            }
+    //         if ($query !== "") {
+    //             $data->where('user_card_no', 'LIKE', "%{$query}%")
+    //                 ->orWhere('mobile1', 'LIKE', "%{$query}%")
+    //                 ->orWhere('fname', 'LIKE', "%{$query}%");
+    //         }
 
-            return DataTables::of($data)
-                ->addColumn('action', function ($row) {
-                    return '<div class="flex gap-5">
-                        <button class="px-2 border text-sm py-1 hover:bg-blue-800 rounded-md bg-blue-700 text-white"><i class="fa-regular fa-address-card fa-xl"></i></button>
-                        <button class="px-3 border text-sm py-1 hover:bg-green-800 rounded-md bg-green-700 text-white"><i class="fa-solid fa-inbox fa-lg"></i> </button>
-                        <button class="px-3 border text-sm py-1 hover:bg-gray-800 rounded-md bg-gray-700 text-white"><i class="fa-solid fa-receipt fa-lg"></i></button>
-                    </div>';
-                })
-                ->rawColumns(['action'])
-                ->make(true);
+    //         return DataTables::of($data)
+    //             ->addColumn('action', function ($row) {
+    //                 return '<div class="flex gap-5">
+    //                     <button class="px-2 border text-sm py-1 hover:bg-blue-800 rounded-md bg-blue-700 text-white"><i class="fa-regular fa-address-card fa-xl"></i></button>
+    //                     <button class="px-3 border text-sm py-1 hover:bg-green-800 rounded-md bg-green-700 text-white"><i class="fa-solid fa-inbox fa-lg"></i> </button>
+    //                     <button class="px-3 border text-sm py-1 hover:bg-gray-800 rounded-md bg-gray-700 text-white"><i class="fa-solid fa-receipt fa-lg"></i></button>
+    //                 </div>';
+    //             })
+    //             ->rawColumns(['action'])
+    //             ->make(true);
+    //     }
+    // }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $data = [];
+
+        if($query !== "") {
+            // $data = Department::where('department_name', 'LIKE', "%{$query}%")->get();
+            $data = Patient::where('user_card_no', 'LIKE', "%{$query}%")
+                            ->orWhere('mobile1', 'LIKE', "%{$query}%")
+                            ->orWhere('user_id_type', 'LIKE', "%{$query}%")
+                            ->orWhere('mname', 'LIKE', "%{$query}%")
+                            ->orWhere('age', 'LIKE', "%{$query}%")
+                            ->orWhere('gender', 'LIKE', "%{$query}%")
+                            ->orWhere('blood_group', 'LIKE', "%{$query}%")
+                            ->orWhere('area', 'LIKE', "%{$query}%")
+                            ->orWhere('register_date', 'LIKE', "%{$query}%")
+                            ->orWhere('fname', 'LIKE', "%{$query}%")->paginate(5);
         }
+        else{
+            $data = Patient::all();
+        }
+
+        return view('table.patient', compact('data'));
     }
 }

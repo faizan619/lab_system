@@ -16,22 +16,27 @@
             @endif
             <div class="flex flex-col justify-center items-center ">
                 <div class="my-5 flex justify-between gap-5 w-[60%]">
-                    <input type="text" name="query" id="search" placeholder="Search by Aadhar No or Phone No" class="p-1 border w-full rounded-md">
-                    <a href="{{route('create')}}">
-                        <div class="px-3 w-28 py-1 rounded-md bg-blue-700 text-white">Create New</div>
+                    <input type="text" name="query" id="search" placeholder="Search by Aadhar No or Phone No"
+                        class="p-1 border w-full rounded-md">
+                    <a href="{{ route('create') }}">
+                        {{-- <div class="px-3 w-28 py-1 rounded-md bg-blue-700 text-white">Create New</div> --}}
+                        <p class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
+                            <i class="fa-solid fa-plus fa-lg"></i>
+                        </p>
                     </a>
                 </div>
-                <table id="patientTable" >
+                <table class="w-full">
                     <thead class="bg-black text-white w-full">
                         <tr>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Id</td>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Card_No</td>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Patient</td>
-                            <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Register_Date</td>
+                            <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Register_Date
+                            </td>
                             <td class="border px-5 font-semibold bg-black text-white capitalize text-center">Action</td>
                         </tr>
                     </thead>
-                    <tbody class="border ">
+                    <tbody class="border" id="patientTableBody">
                         @forelse ($patientdata as $data)
                             <tr>
                                 <td class="border px-1 ">{{ $data->id }}</td>
@@ -39,11 +44,17 @@
                                 <td class="border px-1 ">{{ $data->fname }} {{ $data->mname }} {{ $data->lname }}</td>
                                 <td class="border px-1 ">{{ $data->register_date }}</td>
                                 <td class="border px-1 flex gap-3 flex justify-center items-center">
-                                    <a href={{route('dept.show',$data->id)}}>
-                                        <button class="px-3 border text-sm py-2 hover:bg-blue-800 rounded-md bg-blue-700 text-white"><i class="fa-regular fa-address-card"></i></button>
+                                    <a href={{ route('dept.show', $data->id) }}>
+                                        <button
+                                            class="px-3 border text-sm py-1 hover:bg-blue-800 rounded-md bg-blue-700 text-white"><i
+                                                class="fa-regular fa-address-card"></i></button>
                                     </a>
-                                    <button class="px-3 border text-sm py-2 hover:bg-green-800 rounded-md bg-green-700 text-white"><i class="fa-solid fa-inbox fa-xl"></i></button>
-                                    <button class="px-3 border text-sm py-2 hover:bg-gray-800 rounded-md bg-gray-700 text-white"><i class="fa-solid fa-receipt fa-lg"></i></button>
+                                    <button
+                                        class="px-3 border text-sm py-1 hover:bg-green-800 rounded-md bg-green-700 text-white"><i
+                                            class="fa-solid fa-inbox fa-xl"></i></button>
+                                    <button
+                                        class="px-3 border text-sm py-1 hover:bg-gray-800 rounded-md bg-gray-700 text-white"><i
+                                            class="fa-solid fa-receipt fa-lg"></i></button>
                                 </td>
                             </tr>
                         @empty
@@ -53,34 +64,31 @@
                         @endforelse
                     </tbody>
                 </table>
+                @if ($patientdata->hasPages())
+                    <div class="mt-5">
+                        {{ $patientdata->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#patientTable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: {
-                    url: '{{ route('patient.data') }}',
-                    data: function (d) {
-                        d.query = $('#search').val();
-                    }
-                },
-                columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'user_card_no', name: 'user_card_no' },
-                    { data: 'fname', name: 'fname' },
-                    { data: 'register_date', name: 'register_date' },
-                    { data: 'action', name: 'action', orderable: false, searchable: false }
-                ]
-            });
-
             $('#search').on('keyup', function() {
-                $('#patientTable').DataTable().draw(true);
+                var query = $(this).val();
+                $.ajax({
+                    url: '{{ route('patient.search') }}',
+                    type: 'GET',
+                    data: {
+                        'query': query
+                    },
+                    success: function(data) {
+                        $('#patientTableBody').html(data);
+                    }
+                });
             });
         });
     </script>
 @endsection
-

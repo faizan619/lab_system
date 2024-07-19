@@ -17,7 +17,7 @@ Route::post('/loginuser',[UserController::class,'loginAdmin'])->name('loginUser'
 
 Route::resource('',PatientController::class);
 Route::get('/patients/search', [PatientController::class, 'search'])->name('patient.search');
-Route::get('/patients/data', [PatientController::class, 'getData'])->name('patient.data');
+// Route::get('/patients/data', [PatientController::class, 'getData'])->name('patient.data');
 
 Route::get('/doctor_ref',[DoctorController::class,'showdocform'])->name('doc_ref_form');
 Route::post('/doc_data',[DoctorController::class,'docformdata'])->name('doctor_data');
