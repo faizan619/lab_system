@@ -15,7 +15,8 @@ class TestController extends Controller
      */
     public function index()
     {
-        $tests = Test::all();
+        // $tests = Test::all();
+        $tests = Test::paginate(3);
         return view('test.view',compact('tests'));
     }
 
@@ -87,23 +88,39 @@ class TestController extends Controller
     {
         //
     }
-    public function getData(Request $request) {
-        if ($request->ajax()) {
-            $data = Test::select(['id', 'test_name', 'short_name']);
-            return DataTables::of($data)
-                ->addColumn('action', function ($row) {
-                    $editUrl = route('test.edit', $row->id);
-                    $deleteUrl = route('test.destroy', $row->id);
-                    return '<div class="flex gap-5 "><a href="' . $editUrl . '"><i class="fa-solid fa-pen fa-lg"></i></a>
-                            <form action="' . $deleteUrl . '" method="POST" style="display:inline-block;">
-                                ' . csrf_field() . '
-                                ' . method_field("DELETE") . '
-                                <i class="fa-solid fa-trash fa-lg"></i>
-                            </form></div>';
-                })
-                ->rawColumns(['action'])
-                ->make(true);
+    // public function getData(Request $request) { 
+    //     if ($request->ajax()) {
+    //         $data = Test::select(['id', 'test_name', 'short_name']);
+    //         return DataTables::of($data)
+    //             ->addColumn('action', function ($row) {
+    //                 $editUrl = route('test.edit', $row->id);
+    //                 $deleteUrl = route('test.destroy', $row->id);
+    //                 return '<div class="flex gap-5 "><a href="' . $editUrl . '"><i class="fa-solid fa-pen fa-lg"></i></a>
+    //                         <form action="' . $deleteUrl . '" method="POST" style="display:inline-block;">
+    //                             ' . csrf_field() . '
+    //                             ' . method_field("DELETE") . '
+    //                             <i class="fa-solid fa-trash fa-lg"></i>
+    //                         </form></div>';
+    //             })
+    //             ->rawColumns(['action'])
+    //             ->make(true);
+    //     }
+    // }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $data = [];
+        if($query !== "") {
+            $data = Test::where('test_name', 'LIKE', "%{$query}%")
+                            ->orWhere('test_price', 'LIKE', "%{$query}%")->paginate(3);
         }
+        else{
+            // $data = Test::all();
+            $data = Test::paginate(3);
+        }
+
+        return view('table.test', compact('data'));
     }
 
 }

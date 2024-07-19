@@ -26,11 +26,13 @@ Route::get('/center_ref',[CenterController::class,'showcenterform'])->name('cent
 Route::post('/center_data',[CenterController::class,'centerformdata'])->name('center_data');
 
 Route::resource('dept',DepartmentController::class);
-Route::get('/search',[DepartmentController::class,'search'])->name('dept.search');
-Route::get('/test/data', [TestController::class, 'getData'])->name('test.data');
+Route::get('/search/dept',[DepartmentController::class,'search'])->name('dept.search');
+// Route::get('/test/data', [TestController::class, 'getData'])->name('test.data');
 
 
 Route::resource('subdept',SubController::class);
 
 Route::resource('test',TestController::class);
-// Route::get('test/search',[TestController::class,'search'])->name('test.search');
+// Route::get('/test/search',[TestController::class,'search'])->name('test.search');
+Route::get('/search/test', [TestController::class, 'search'])->name('test.search');
+
