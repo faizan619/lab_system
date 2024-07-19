@@ -16,11 +16,9 @@
             @endif
             <div class="mt-5 flex flex-col justify-center items-center">
                 <div class="my-5 flex justify-between gap-5 w-[60%]">
-                    <input type="text" name="query" id="search" placeholder="Search by Test Name"
+                    <input type="text" name="query" id="search" placeholder="Search by Test Name or Test Price"
                         class="p-2 border w-full rounded-md">
-                    {{-- <button type="submit" class="px-5 py-1 rounded-md bg-blue-700 text-white">Search</button> --}}
                     <a href="{{ route('test.create') }}">
-                        {{-- <div class="px-3 w-28 py-1 rounded-md bg-blue-700 text-white">Create New</div> --}}
                         <p class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
                             <i class="fa-solid fa-plus fa-lg"></i>
                         </p>
@@ -31,8 +29,7 @@
                         <tr class="w-full">
                             <td class="border p-2 font-semibold bg-black text-white ">Id</td>
                             <td class="border p-2 font-semibold bg-black text-white ">Test Name</td>
-                            <td class="border p-2 font-semibold bg-black text-white ">Sub Department Id</td>
-                            <td class="border p-2 font-semibold bg-black text-white ">Center Id</td>
+                            <td class="border p-2 font-semibold bg-black text-white ">Test Price</td>
                             <td class="border p-2 font-semibold bg-black text-white ">Action</td>
                         </tr>
                     </thead>
@@ -41,8 +38,7 @@
                             <tr>
                                 <td class="border p-2 font-semibold">{{ $dd->id }}</td>
                                 <td class="border p-2 font-semibold">{{ $dd->test_name }}</td>
-                                <td class="border p-2 font-semibold">{{ $dd->sub_dept_id }}</td>
-                                <td class="border p-2 font-semibold">{{ $dd->center_id }}</td>
+                                <td class="border p-2 font-semibold">{{ $dd->test_price }}</td>
                                 <td class="border px-3 font-semibold">
                                     <div class="flex gap-5">
                                         <a href="{{ route('dept.edit', $dd->id) }}">
