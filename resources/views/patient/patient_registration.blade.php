@@ -12,7 +12,7 @@
             </div>
             <hr class="border-blue-500">
             <br>
-            <form action="{{ route('store') }}" method="POST" class="w-full flex flex-col gap-7 p-2">
+            <form action="{{ route('store') }}" method="POST" class="w-full flex flex-col gap-3 p-1">
                 @csrf
                 <div class="flex gap-5">
                     <div class="flex gap-3 flex-1">
@@ -141,7 +141,7 @@
 
                     </label>
                     <label for="age" class="flex-1 font-semibold flex flex-col gap-2">
-                        <p>Age</p>
+                        <p>Age<span class="text-red-800">*</span></p>
                         <input type="number" name="age" id="age" value="{{old('age')}}" class="border p-1 px-2 rounded-md"
                             placeholder="Age">
 
@@ -156,7 +156,7 @@
 
                     </label>
                     <label for="sex" class="flex-1 font-semibold flex flex-col gap-2">
-                        <p>Sex</p>
+                        <p>Sex<span class="text-red-800">*</span></p>
                         <select name="gender" id="sex" class="p-1 px-2 border rounded-md" required>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
