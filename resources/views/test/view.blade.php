@@ -24,10 +24,10 @@
             @endif
             <div class="mt-5 flex flex-col justify-center items-center">
                 <div class="my-5 flex justify-between gap-5 w-[60%]">
-                    <input type="text" name="query" id="search" placeholder="Search by Test Name or Test Price"
+                    <input title="Search Test" type="text" name="query" id="search" placeholder="Search by Test Name or Test Price"
                         class="p-2 border w-full rounded-md">
                     <a href="{{ route('test.create') }}">
-                        <p class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
+                        <p title="Create Test" class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
                             <i class="fa-solid fa-plus fa-lg"></i>
                         </p>
                     </a>
@@ -35,29 +35,29 @@
                 <table class="border w-full">
                     <thead class="border w-full">
                         <tr class="w-full">
-                            <td class="border p-2 font-semibold bg-black text-white ">Id</td>
-                            <td class="border p-2 font-semibold bg-black text-white ">Test Name</td>
-                            <td class="border p-2 font-semibold bg-black text-white ">Test Price</td>
-                            <td class="border p-2 font-semibold bg-black text-white ">Action</td>
+                            <td class="border p-1 font-semibold bg-black text-white ">Id</td>
+                            <td class="border p-1 font-semibold bg-black text-white w-[50%]">Test Name</td>
+                            <td class="border p-1 font-semibold bg-black text-white w-[50%]">Test Price</td>
+                            <td class="border p-1 font-semibold bg-black text-white ">Action</td>
                         </tr>
                     </thead>
                     <tbody class="border" id="testTableHere">
                         @forelse ($tests as $dd)
                             <tr>
-                                <td class="border p-2 font-semibold">{{ $dd->id }}</td>
-                                <td class="border p-2 font-semibold">{{ $dd->test_name }}</td>
-                                <td class="border p-2 font-semibold">{{ $dd->test_price }}</td>
+                                <td class="border p-1 font-semibold">{{ $dd->id }}</td>
+                                <td class="border p-1 font-semibold">{{ $dd->test_name }}</td>
+                                <td class="border p-1 font-semibold">{{ $dd->test_price }}</td>
                                 <td class="border px-3 font-semibold">
                                     <div class="flex gap-5">
                                         <a href="{{ route('dept.edit', $dd->id) }}">
-                                            <button
+                                            <button title="Edit Test"
                                                 class="px-5 rounded-sm text-sm py-1 bg-blue-600 hover:bg-blue-700  text-white"><i
                                                     class="fa-solid fa-pen-to-square fa-lg"></i></button>
                                         </a>
                                         <form action="{{ route('dept.destroy', $dd->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <p
+                                            <p title="Delete Test"
                                                 class="px-5 rounded-sm text-sm py-1 bg-red-600 hover:bg-red-700 cursor-pointer  text-white">
                                                 <i class="fa-solid fa-trash"></i>
                                             </p>

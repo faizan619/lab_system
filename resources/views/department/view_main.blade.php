@@ -24,10 +24,10 @@
             @endif
             <div class=" flex flex-col justify-center items-center">
                 <div class="my-5 flex justify-between items-center gap-5 w-[60%]">
-                    <input type="text" name="query" id="search" placeholder="Search Department Name"
+                    <input title="Search Department" type="text" name="query" id="search" placeholder="Search Department Name"
                         class="p-2 border w-full rounded-md">
                     <a href="{{ route('dept.create') }}">
-                        <p class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
+                        <p title="Create Department" class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
                             <i class="fa-solid fa-plus fa-lg"></i>
                         </p>
                     </a>
@@ -67,14 +67,14 @@
                             <tr>
                                 <td colspan="3" class="text-center">No Department Data Available</td>
                             </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-                @if ($data->hasPages())
-                    <div class="mt-5 font-semibold w-full">
-                        {{ $data->links() }}
-                    </div>
-                @endif
+                            @endforelse
+                        </tbody>
+                    </table>
+                    @if ($data->hasPages())
+                        <div class="mt-5 font-semibold w-full">
+                            {{ $data->links() }}
+                        </div>
+                    @endif
             </div>
         </div>
     </div>

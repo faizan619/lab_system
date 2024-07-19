@@ -22,13 +22,13 @@
                 </button>
               </div>
             @endif
-            <div class="flex flex-col justify-center items-center "> 
+            <div class="flex flex-col justify-center items-center ">
                 <div class="my-5 flex justify-between gap-5 w-[60%]">
-                    <input type="text" name="query" id="search" placeholder="Search by Aadhar No or Phone No"
+                    <input title="Search Patient" type="text" name="query" id="search" placeholder="Search by Aadhar No or Phone No"
                         class="p-1 border w-full rounded-md">
                     <a href="{{ route('create') }}">
                         {{-- <div class="px-3 w-28 py-1 rounded-md bg-blue-700 text-white">Create New</div> --}}
-                        <p class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
+                        <p title="Create New Patient" class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
                             <i class="fa-solid fa-plus fa-lg"></i>
                         </p>
                     </a>
@@ -53,14 +53,14 @@
                                 <td class="border px-1 ">{{ $data->register_date }}</td>
                                 <td class="border px-1 flex gap-3 flex justify-center items-center">
                                     <a href={{ route('dept.show', $data->id) }}>
-                                        <button
+                                        <button title="View Details"
                                             class="px-3 border text-sm py-1 hover:bg-blue-800 rounded-md bg-blue-700 text-white"><i
                                                 class="fa-regular fa-address-card"></i></button>
                                     </a>
-                                    <button
+                                    <button title="Don't Know"
                                         class="px-3 border text-sm py-1 hover:bg-green-800 rounded-md bg-green-700 text-white"><i
                                             class="fa-solid fa-inbox fa-xl"></i></button>
-                                    <button
+                                    <button title="Receipt"
                                         class="px-3 border text-sm py-1 hover:bg-gray-800 rounded-md bg-gray-700 text-white"><i
                                             class="fa-solid fa-receipt fa-lg"></i></button>
                                 </td>
@@ -81,7 +81,6 @@
         </div>
     </div>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script>
         $(document).ready(function() {
             $('#search').on('keyup', function() {

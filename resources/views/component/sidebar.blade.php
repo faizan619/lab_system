@@ -60,7 +60,7 @@
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Test Parameter</p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('dept.index') }}">Main Department</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('subdept.index') }}">Sub Department</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">User Registration</p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('register')}}">User Registration</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('doc_ref_form') }}">Create Doctor Reference</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('center_ref_form') }}">Create Center Reference</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('dept.create') }}">Add Department</a></p>

@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () { return view('page.reception.patient_registration'); })->name('home');
 
 Route::get('/login',function(){return view('auth.loginpage');})->name('login');
+Route::get('/register',function(){return view('auth.register');})->name('register');
 
 Route::post('/loginuser',[UserController::class,'loginAdmin'])->name('loginUser');
+Route::post('/registeruser',[UserController::class,'registerUser'])->name('registerUser');
 
 Route::resource('',PatientController::class);
 Route::get('/patients/search', [PatientController::class, 'search'])->name('patient.search');
@@ -31,6 +33,7 @@ Route::get('/search/dept',[DepartmentController::class,'search'])->name('dept.se
 
 
 Route::resource('subdept',SubController::class);
+Route::get('/search/sub', [SubController::class, 'search'])->name('sub.search');
 
 Route::resource('test',TestController::class);
 // Route::get('/test/search',[TestController::class,'search'])->name('test.search');

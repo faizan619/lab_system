@@ -24,7 +24,9 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('patient.patient_registration');
+        $data1 = Patient::count();
+        $data = $data1 +1;
+        return view('patient.patient_registration',compact('data'));
     }
 
     /**

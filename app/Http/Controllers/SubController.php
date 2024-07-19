@@ -74,4 +74,19 @@ class SubController extends Controller
     {
         //
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $data = [];
+
+        if($query !== "") {
+            $data = Sub::where('sub_department_name', 'LIKE', "%{$query}%")
+                            ->orWhere('dept_id', 'LIKE', "%{$query}%")->get();
+        }
+        else{
+            $data = Sub::all();
+        }
+
+        return view('table.subdept', compact('data'));
+    }
 }
