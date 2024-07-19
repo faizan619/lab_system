@@ -42,7 +42,7 @@ class PatientController extends Controller
             'dob'=> 'required|date',
             'age'=> 'required|numeric',
             'gender'=> 'required',
-            'mobile1'=> 'required|numeric',
+            'mobile1'=> 'required|string|regex:/^\+?[9,8,7]\d{1,14}$/',
             'blood_group'=> 'required',
             'mobile2'=> 'nullable|numeric',
             'email'=> 'nullable|email',

@@ -13,7 +13,14 @@
                 @csrf
                 <label for="name" class="w-full flex flex-col items-start gap-2">
                     <p class="font-semibold">Department Name</p>
-                    <input type="text" name="department_name" id="name" class="p-2 rounded-md border w-[50%] shadow-sm shadow-black" placeholder="Enter Department Name">
+                    <input type="text" name="department_name" id="name" class="p-2 rounded-md @error('department_name') border-red-700 @enderror border w-[50%] shadow-sm shadow-black" placeholder="Enter Department Name">
+                    @if ($errors->any())
+                        <p class="text-red-700  rounded-md ">
+                            @error('department_name')
+                                {{ $message }}
+                            @enderror
+                        </p>
+                    @endif
                 </label>
                 <button class="px-5 py-1 rounded-md mt-3 bg-blue-800 hover:bg-blue-900 text-white ">Add Main Department</button>
             </form>

@@ -23,8 +23,15 @@
                 </label>
                 <label for="name" class="w-full flex flex-col items-start gap-2">
                     <p class="font-semibold">Sub Department Name</p>
-                    <input type="text" name="sub_department_name" id="name" @error('sub_department_name') border-red-700 @enderror
-                        class="p-2 rounded-md border w-[50%] shadow-sm shadow-black" placeholder="Enter Sub Department Name">
+                    <input type="text" name="sub_department_name" id="name"
+                        class="p-2 rounded-md border w-[50%] @error('sub_department_name') border-red-700 @enderror shadow-sm shadow-black" placeholder="Enter Sub Department Name">
+                        @if ($errors->any())
+                        <span class="text-red-700 rounded-md ">
+                            @error('sub_department_name')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    @endif
                 </label>
                 <button class="px-5 py-1 rounded-md mt-3 bg-blue-800 hover:bg-blue-900 text-white ">Add Sub
                     Department</button>
