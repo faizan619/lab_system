@@ -14,7 +14,7 @@
                     {{ session('status') }}
                 </p>
             @endif
-            <div class="flex flex-col justify-center items-center ">
+            <div class="flex flex-col justify-center items-center "> 
                 <div class="my-5 flex justify-between gap-5 w-[60%]">
                     <input type="text" name="query" id="search" placeholder="Search by Aadhar No or Phone No"
                         class="p-1 border w-full rounded-md">
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script>
         $(document).ready(function() {
             $('#search').on('keyup', function() {
