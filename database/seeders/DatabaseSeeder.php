@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([UserSeeder::class,PatientSeeder::class,DepartmentSeeder::class]);
+        $this->call([UserSeeder::class,PatientSeeder::class,DepartmentSeeder::class,SubSeeder::class,DoctorSeeder::class,CenterSeeder::class,TestSeeder::class]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
