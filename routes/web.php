@@ -3,6 +3,7 @@
 use App\Http\Controllers\CenterController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\ParameterController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SubController;
 use App\Http\Controllers\TestController;
@@ -38,4 +39,9 @@ Route::get('/search/sub', [SubController::class, 'search'])->name('sub.search');
 Route::resource('test',TestController::class);
 // Route::get('/test/search',[TestController::class,'search'])->name('test.search');
 Route::get('/search/test', [TestController::class, 'search'])->name('test.search');
+
+Route::resource('parameter',ParameterController::class);
+Route::get('/search/testpara',[ParameterController::class,'testpara'])->name('testpara.search');
+Route::get('/search/para',[ParameterController::class,'para'])->name('para.search');
+
 
