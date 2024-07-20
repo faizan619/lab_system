@@ -41,7 +41,9 @@ Route::resource('test',TestController::class);
 Route::get('/search/test', [TestController::class, 'search'])->name('test.search');
 
 Route::resource('parameter',ParameterController::class);
-Route::get('/search/testpara',[ParameterController::class,'testpara'])->name('testpara.search');
-Route::get('/search/para',[ParameterController::class,'para'])->name('para.search');
+// Route::get('/search/testpara',[ParameterController::class,'testpara'])->name('testpara.search');
+// Route::get('/search/para',[ParameterController::class,'search'])->name('para.search');
+Route::get('/search/para', [ParameterController::class, 'search'])->name('search.tests');
+
 
 

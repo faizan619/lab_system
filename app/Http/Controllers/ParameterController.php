@@ -39,8 +39,7 @@ class ParameterController extends Controller
      */
     public function show(string $id)
     {
-        $tests = Test::find($id);
-        return view('parameter.addpara',compact('tests'));
+        //
     }
 
     /**
@@ -66,19 +65,19 @@ class ParameterController extends Controller
     {
         //
     }
-    public function testpara(Request $request)
+
+    public function search(Request $request)
     {
         $query = $request->input('query');
-        $tests = [];
+        $data = [];
         if($query !== "") {
-            $tests = Test::where('test_name', 'LIKE', "%{$query}%")
+            $data = Parameter::where('test_name', 'LIKE', "%{$query}%")
                             ->orWhere('test_price', 'LIKE', "%{$query}%")->get();
         }
         else{
-            // $tests = Test::all();
-            $tests = Test::all();
+            $data = Parameter::all();
         }
-
-        return view('table.testpara', compact('tests'));
+        // return view('table.test', compact('data'));
+        return view('//yaha table ka lnk bana hai show kar', compact('data'));
     }
 }

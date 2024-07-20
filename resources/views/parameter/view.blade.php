@@ -25,16 +25,10 @@
                 </div>
             @endif
             <div class="mt-5 flex flex-col justify-center items-center">
-                <div class="my-1 flex justify-between gap-5 w-[60%]">
-                    <input title="Search Test" type="text" name="query" id="search"
-                        placeholder="Search Test for Add Parameter" class="p-2 border w-full rounded-md">
-                    <a href="{{ route('parameter.index') }}">
-                        <p title="Create Test"
-                            class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
-                            View
-                        </p>
-                    </a>
-                </div>
+                <form id="search-form" class="my-1 flex justify-between gap-5 w-[60%]">
+                    <input title="Search Test" type="text" name="query" id="search" placeholder="Search Test for Add Parameter" class="p-2 border w-full rounded-md">
+                    <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Search</button>
+                </form>
                 <table class="border mt-1 w-full">
                     <thead class="border w-full">
                         <tr class="w-full">
@@ -44,13 +38,14 @@
                             <td class="border px-3 py-1 font-semibold bg-black text-white ">Action</td>
                         </tr>
                     </thead>
-                    <tbody class="border" id="testParaTableHere">
+                    <tbody class="border" id="tests-table-body">
                         @forelse ($tests as $dd)
                             <tr>
                                 <td class="border p-1 font-semibold">{{ $dd->id }}</td>
-                                <td class="border p-1 font-semibold">{{ $dd->test_name }}</td>
+                                <td class="border p-1 font-semibold">{{ $dd->test_name }}g</td>
                                 <td class="border p-1 font-semibold">{{ $dd->test_price }}</td>
                                 <td class="border px-3 font-semibold">
+                                    <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                                     <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                                         data-test-id="{{ $dd->id }}" data-test-name="{{ $dd->test_name }}"
                                         class="block text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-3 py-2 text-center"
@@ -69,6 +64,7 @@
             </div>
         </div>
     </div>
+
     <div id="default-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -155,54 +151,35 @@
         </div>
     </div>
     <script>
-        // $(document).ready(function() {
-            // $('#search').on('keyup', function() {
-            //     var query = $(this).val();
-            //     console.log(query);
-            //     $.ajax({
-            //         url: '{{ route('testpara.search') }}',
-            //         type: 'GET',
-            //         data: {
-            //             'query': query
-            //         },
-            //         success: function(data) {
-            //             console.log(data);
-            //             $('#testParaTableHere').html(data);
-            //         }
-            //     });
-            // });
+        $(document).ready(function() {
+            $('#search-form').on('submit', function(event) {
+                event.preventDefault();
+                let query = $('#search').val();
 
-            // const modal = document.getElementById('default-modal');
-            
-            // document.querySelectorAll('[data-modal-toggle="default-modal"]').forEach(button => {
-            //     button.addEventListener('click', function() {
-            //         const testId = this.getAttribute('data-test-id');
-            //         const testName = this.getAttribute('data-test-name');
-                    
-            //         // Set the values in the modal
-            //         modal.querySelector('input[name="test_id"]').value = testId;
-            //         modal.querySelector('input[name="test_name"]').value = testName;
-            //     });
-            // });
-        // });
-    </script>
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
+                $.ajax({
+                    url: "{{ route('search.tests') }}",
+                    method: "GET",
+                    data: { query: query },
+                    success: function(response) {
+                        $('#tests-table-body').html(response);
+                    }
+                });
+            });
+
             const modal = document.getElementById('default-modal');
-            
+
             document.querySelectorAll('[data-modal-toggle="default-modal"]').forEach(button => {
                 button.addEventListener('click', function() {
                     const testId = this.getAttribute('data-test-id');
                     const testName = this.getAttribute('data-test-name');
-                    
+
                     // Set the values in the modal
                     modal.querySelector('input[name="test_id"]').value = testId;
                     modal.querySelector('input[name="test_name"]').value = testName;
                 });
             });
         });
-    </script> --}}
-    
+    </script>
 @endsection
 
 
@@ -233,16 +210,10 @@
                 </div>
             @endif
             <div class="mt-5 flex flex-col justify-center items-center">
-                <div class="my-1 flex justify-between gap-5 w-[60%]">
-                    <input title="Search Test" type="text" name="query" id="search"
-                        placeholder="Search Test for Add Parameter" class="p-2 border w-full rounded-md">
-                    <a href="{{ route('parameter.index') }}">
-                        <p title="Create Test"
-                            class="bg-blue-600 text-white py-2 px-3 hover:scale-105 cursor-pointer rounded-full">
-                            View
-                        </p>
-                    </a>
-                </div>
+                <form action="{{ route('search.tests') }}" method="GET" class="my-1 flex justify-between gap-5 w-[60%]">
+                    <input title="Search Test" type="text" name="query" id="search" placeholder="Search Test for Add Parameter" class="p-2 border w-full rounded-md">
+                    <button type="submit" class="px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">Search</button>
+                </form>
                 <table class="border mt-1 w-full">
                     <thead class="border w-full">
                         <tr class="w-full">
@@ -252,7 +223,7 @@
                             <td class="border px-3 py-1 font-semibold bg-black text-white ">Action</td>
                         </tr>
                     </thead>
-                    <tbody class="border" id="testParaTableHere">
+                    <tbody class="border">
                         @forelse ($tests as $dd)
                             <tr>
                                 <td class="border p-1 font-semibold">{{ $dd->id }}</td>
@@ -260,13 +231,11 @@
                                 <td class="border p-1 font-semibold">{{ $dd->test_price }}</td>
                                 <td class="border px-3 font-semibold">
                                     <button data-modal-target="default-modal" data-modal-toggle="default-modal"
+                                        data-test-id="{{ $dd->id }}" data-test-name="{{ $dd->test_name }}"
                                         class="block text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm px-3 py-2 text-center"
                                         type="button">
                                         <i class="fa-solid fa-rectangle-list fa-lg"></i>
                                     </button>
-                                    <a href="{{route('parameter.show',$dd->id)}}">
-                                        <button class="px-3  rounded-md bg-blue-700 text-white"><i class="fa-solid fa-rectangle-list fa-lg"></i></button>
-                                    </a>
                                 </td>
                             </tr>
                         @empty
@@ -279,6 +248,7 @@
             </div>
         </div>
     </div>
+
     <div id="default-modal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
@@ -300,8 +270,7 @@
                         <input type="text" name="test_id" value="" hidden>
                         <label for="test_name">
                             <p class="font-semibold">Test Name:</p>
-                            <p class="border border-black cursor-not-allowed p-1 rounded-md bg-gray-300 w-32">
-                                {{ $tests->test_name }}</p>
+                            <input type="text" name="test_name" id="test_name" class="p-1 rounded-md w-32 bg-gray-300" readonly>
                         </label>
                         <label for="test_parameter">
                             <p class="font-semibold">Test Parameter:</p>
@@ -367,21 +336,19 @@
     </div>
     <script>
         $(document).ready(function() {
-            $('#search').on('keyup', function() {
-                var query = $(this).val();
-                console.log(query);
-                $.ajax({
-                    url: '{{ route('testpara.search') }}',
-                    type: 'GET',
-                    data: {
-                        'query': query
-                    },
-                    success: function(data) {
-                        console.log(data);
-                        $('#testParaTableHere').html(data);
-                    }
+            const modal = document.getElementById('default-modal');
+
+            document.querySelectorAll('[data-modal-toggle="default-modal"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const testId = this.getAttribute('data-test-id');
+                    const testName = this.getAttribute('data-test-name');
+
+                    // Set the values in the modal
+                    modal.querySelector('input[name="test_id"]').value = testId;
+                    modal.querySelector('input[name="test_name"]').value = testName;
                 });
             });
         });
     </script>
+
 @endsection --}}
