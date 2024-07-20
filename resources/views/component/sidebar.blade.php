@@ -57,7 +57,7 @@
                     </summary>
                     {{-- <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">User Login Log</p> --}}
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('test.index')}}">Test Name</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Test Parameter</p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('parameter.index')}}">Test Parameter</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('dept.index') }}">Main Department</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('subdept.index') }}">Sub Department</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('register')}}">User Registration</a></p>
@@ -66,7 +66,7 @@
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('dept.create') }}">Add Department</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{ route('subdept.create') }}">Add Sub Department</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('test.create')}}">Add New Test</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Add Test Parameter</p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('parameter.create')}}">Add Test Parameter</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Add Help Value</p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer">Test Rate</p>
                 </details>

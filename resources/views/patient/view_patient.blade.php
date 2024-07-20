@@ -73,7 +73,7 @@
                     </tbody>
                 </table>
                 @if ($patientdata->hasPages())
-                    <div class="mt-5">
+                    <div class="mt-5 w-full">
                         {{ $patientdata->links() }}
                     </div>
                 @endif

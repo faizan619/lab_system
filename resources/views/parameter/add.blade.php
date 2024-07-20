@@ -1,13 +1,13 @@
 @extends('masterLayout')
 
 @section('title')
-    Add Test |
+    Add Parameter |
 @endsection
 
 @section('body')
     <div class="flex justify-center items-center">
         <div class="w-[70%] mt-5">
-            <h1 class="text-center font-semibold text-xl">Search Test and Update</h1>
+            <h1 class="text-center font-semibold text-xl">Search Test Parameter and Update</h1>
             <hr class="border-blue-800" />
             @if (session('status'))
             <div id="alert-1" class="flex items-center p-4 my-1 text-blue-800 rounded-lg bg-blue-50" role="alert">
@@ -32,7 +32,7 @@
                         </p>
                     </a>
                 </div>
-                <table class="border mt-1 w-full">
+                {{-- <table class="border mt-1 w-full">
                     <thead class="border w-full">
                         <tr class="w-full">
                             <td class="border px-3 py-1 font-semibold bg-black text-white ">Test_Id</td>
@@ -71,18 +71,18 @@
                             </tr>
                         @endforelse
                     </tbody>
-                </table>
+                </table> --}}
                 <div class="w-full">
-                    @if ($tests->hasPages())
+                    {{-- @if ($tests->hasPages())
                         <div class="mt-5">
                             {{ $tests->links() }}
                         </div>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </div>
     </div>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#search').on('keyup', function() {
                 var query = $(this).val();
@@ -100,5 +100,5 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 @endsection
