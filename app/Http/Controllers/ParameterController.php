@@ -22,8 +22,9 @@ class ParameterController extends Controller
      */
     public function create()
     {
-        $tests = Test::all();
-        return view('parameter.view',compact('tests'));
+        $tests = Test::with('para')->get();
+        $countofpara = Test::with('para')->count();
+        return view('parameter.view',compact('tests','countofpara'));
     }
 
     /**
@@ -66,18 +67,17 @@ class ParameterController extends Controller
         //
     }
 
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $data = [];
-        if($query !== "") {
-            $data = Parameter::where('test_name', 'LIKE', "%{$query}%")
-                            ->orWhere('test_price', 'LIKE', "%{$query}%")->get();
-        }
-        else{
-            $data = Parameter::all();
-        }
-        // return view('table.test', compact('data'));
-        return view('//yaha table ka lnk bana hai show kar', compact('data'));
-    }
+    // public function search(Request $request)
+    // {
+    //     $query = $request->input('query');
+    //     $tests = [];
+    //     if($query !== "") {
+    //         $tests = Test::with('para')->where('test_name', 'LIKE', "%{$query}%")
+    //                         ->orWhere('test_price', 'LIKE', "%{$query}%")->get();
+    //     }
+    //     else{
+    //         $tests = Test::with('para')->get();
+    //     }
+    //     return view('table.parameter', compact('tests'));
+    // }
 }
