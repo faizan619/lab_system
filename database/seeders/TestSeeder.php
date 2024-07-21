@@ -13,7 +13,7 @@ class TestSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 7; $i++) {
 
             DB::table("tests")->insert([
                 "test_name" => $test_name = fake()->randomElement(["chest", "breast", "brain", "lungs", "nose", "teeth", "eyes", "legs", "finger", "tongue"]),
