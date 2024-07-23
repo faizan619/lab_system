@@ -122,5 +122,11 @@ class TestController extends Controller
 
         return view('table.test', compact('data'));
     }
+    public function rateview(){
+        return view("test.rate");
+    }
+    public function helpvalueview(){
+        return view('test.helpvalue');
+    }
 
 }

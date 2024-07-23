@@ -67,17 +67,17 @@ class ParameterController extends Controller
         //
     }
 
-    // public function search(Request $request)
-    // {
-    //     $query = $request->input('query');
-    //     $tests = [];
-    //     if($query !== "") {
-    //         $tests = Test::with('para')->where('test_name', 'LIKE', "%{$query}%")
-    //                         ->orWhere('test_price', 'LIKE', "%{$query}%")->get();
-    //     }
-    //     else{
-    //         $tests = Test::with('para')->get();
-    //     }
-    //     return view('table.parameter', compact('tests'));
-    // }
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $tests = [];
+        if($query !== "") {
+            $tests = Test::with('para')->where('test_name', 'LIKE', "%{$query}%")
+                            ->orWhere('test_price', 'LIKE', "%{$query}%")->get();
+        }
+        else{
+            $tests = Test::with('para')->get();
+        }
+        return view('table.testpara', compact('tests'));
+    }
 }
