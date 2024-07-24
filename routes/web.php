@@ -55,9 +55,8 @@ Route::get('/search/parameter', [ParameterController::class, 'search'])->name('s
 // search panel route here
 Route::get('/search1',function(){return view('searchpanel.dailycollection');})->name('search1');
 Route::get('/search2',function(){return view('searchpanel.patientcollection');})->name('search2');
-Route::get('/search3',function(){return view('searchpanel.patient');})->name('search3');
-Route::get('/search4',function(){return view('searchpanel.dailycollection');})->name('search4');
-Route::get('/search5',function(){return view('searchpanel.dailycollection');})->name('search5');
-Route::get('/search6',function(){return view('searchpanel.dailycollection');})->name('search6');
-Route::get('/search7',function(){return view('searchpanel.dailycollection');})->name('search7');
-Route::get('/search8',function(){return view('searchpanel.dailycollection');})->name('search8');
+Route::get('/search4',function(){return view('searchpanel.patientcollectionXray');})->name('search4');
+Route::get('/search5',function(){return view('searchpanel.patientcollectionSonograpgy');})->name('search5');
+Route::get('/search6',function(){return view('searchpanel.referenceXray');})->name('search6');
+Route::get('/search7',function(){return view('searchpanel.referenceSonography');})->name('search7');
+Route::get('/search8',function(){return view('searchpanel.summary');})->name('search8');

@@ -34,13 +34,12 @@
                         <img src="/icons/dropdown.png" alt="dropdown" class="w-5 h-5">
                     </summary>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search1')}}">Daily Collection Report</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search2')}}">Patient Register Report</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search3')}}">Patient Collection Report</a></p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search2')}}">Patient Collection Report</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search4')}}">Patient Collection Report X-ray</a></p>
                     <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search5')}}">Patient Collection Report Sonography</a> </p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search5')}}">Reference Report X-Ray</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search6')}}">Reference Report Sonography</a></p>
-                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search7')}}">Summary Report</a></p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search6')}}">Reference Report X-Ray</a></p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search7')}}">Reference Report Sonography</a></p>
+                    <p class="py-2 ml-2 rounded-md hover:underline cursor-pointer"><a href="{{route('search8')}}">Summary Report</a></p>
                 </details>
             </div>
 
