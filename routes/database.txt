@@ -1,0 +1,176 @@
+1) auto_id
+2) user_login_log
+3) status
+4)
+
+admin_login = users;        login = users;
+
+
+amount
+        CREATE TABLE IF NOT EXISTS `amount` (
+        `a_id` int(50) NOT NULL AUTO_INCREMENT,
+        `date` date NOT NULL,
+        `p_id` int(50) NOT NULL,
+        `total` int(50) NOT NULL,
+        `balance` int(50) NOT NULL,
+        `paid_amount` int(50) NOT NULL,
+        `other_charge` int(50) NOT NULL,
+        `discount` int(50) NOT NULL,
+        `ref_discount` float NOT NULL,
+        `ref_dis_xray` float NOT NULL,
+        `ref_dis_sono` float NOT NULL,
+        `pay_type` varchar(50) NOT NULL,
+        `ref_center` varchar(100) NOT NULL,
+        `ref_doc` varchar(100) NOT NULL,
+        PRIMARY KEY (`a_id`)
+        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+
+
+auto_id
+        CREATE TABLE IF NOT EXISTS `auto_id` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `name` varchar(200) NOT NULL,
+        `mydate` date NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+
+cencel_test
+        CREATE TABLE IF NOT EXISTS `cancel_test` (
+        `id` int(50) NOT NULL AUTO_INCREMENT,
+        `p_id` int(50) NOT NULL,
+        `date_time` varchar(50) NOT NULL,
+        `cancel_time` varchar(50) NOT NULL,
+        `selec` varchar(15) NOT NULL,
+        `panaadhar` varchar(15) NOT NULL,
+        `title` varchar(10) NOT NULL,
+        `fname` varchar(100) NOT NULL,
+        `mname` varchar(50) NOT NULL,
+        `lname` varchar(100) NOT NULL,
+        `age` int(3) NOT NULL,
+        `dob` date NOT NULL,
+        `gender` varchar(10) NOT NULL,
+        `mob1` varchar(12) NOT NULL,
+        `mob2` varchar(12) NOT NULL,
+        `address` text NOT NULL,
+        `blood` varchar(50) NOT NULL,
+        `email` varchar(50) NOT NULL,
+        `area` varchar(200) NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+center_ref = center;
+
+
+department = departments;
+
+
+doctor_ref = doctors;
+
+
+help_value
+        CREATE TABLE IF NOT EXISTS `help_value` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `s_id` int(11) NOT NULL,
+        `help_v` varchar(200) NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+pending_paid
+        CREATE TABLE IF NOT EXISTS `pending_paid` (
+        `a_id` int(50) NOT NULL AUTO_INCREMENT,
+        `date` date NOT NULL,
+        `p_id` int(50) NOT NULL,
+        `total` int(50) NOT NULL,
+        `balance` int(50) NOT NULL,
+        `paid_amount` int(50) NOT NULL,
+        `other_charge` int(50) NOT NULL,
+        `discount` int(50) NOT NULL,
+        `pay_type` varchar(50) NOT NULL,
+        `ref_center` varchar(100) NOT NULL,
+        `ref_doc` varchar(100) NOT NULL,
+        PRIMARY KEY (`a_id`)
+        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+
+petient_registration = patient;
+
+
+refund
+        CREATE TABLE IF NOT EXISTS `refund` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `p_id` int(11) NOT NULL,
+        `p_name` varchar(50) NOT NULL,
+        `total` int(20) NOT NULL,
+        `paid` int(20) NOT NULL,
+        `refund` int(20) NOT NULL,
+        `date` date NOT NULL,
+        `ref_center` varchar(200) NOT NULL,
+        `ref_doc` varchar(200) NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+status
+        CREATE TABLE IF NOT EXISTS `status` (
+        `status_id` int(11) NOT NULL AUTO_INCREMENT,
+        `p_id` int(100) NOT NULL,
+        `comp_pen` varchar(100) NOT NULL,
+        PRIMARY KEY (`status_id`)
+        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=46 ;
+
+
+sub_department = subs;
+
+
+sub_test = parameters;
+
+
+sub_values
+        CREATE TABLE IF NOT EXISTS `sub_values` (
+        `sub_id` int(11) NOT NULL AUTO_INCREMENT,
+        `t_id` int(50) NOT NULL,
+        `p_id` int(50) NOT NULL,
+        `sub_test` varchar(50) NOT NULL,
+        `sub_value` varchar(50) NOT NULL,
+        `s_id` int(11) NOT NULL,
+        PRIMARY KEY (`sub_id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+##### s_id = sub department Id
+
+
+test = tests;
+
+
+test_status
+        CREATE TABLE IF NOT EXISTS `test_status` (
+        `t_stat_id` int(11) NOT NULL AUTO_INCREMENT,
+        `t_id` int(11) NOT NULL,
+        `p_id` int(11) NOT NULL,
+        `com_pen` varchar(100) NOT NULL,
+        PRIMARY KEY (`t_stat_id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+
+test_value
+        CREATE TABLE IF NOT EXISTS `test_value`(
+        `v_id` int(55) NOT NULL AUTO_INCREMENT,
+        `test_name` varchar(55) NOT NULL,
+        `test_price` varchar(100) NOT NULL,
+        `t_value` varchar(55) NOT NULL,
+        `p_id` int(55) NOT NULL,
+        `t_id` int(50) NOT NULL,
+        PRIMARY KEY (`v_id`)
+        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=116 ;
+
+
+user_login_log
+        CREATE TABLE IF NOT EXISTS `user_login_log` (
+        `id` int(100) NOT NULL AUTO_INCREMENT,
+        `username` varchar(100) NOT NULL,
+        `login_date_time` varchar(20) NOT NULL,
+        `logout_date_time` varchar(20) NOT NULL,
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=215 ;
