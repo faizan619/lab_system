@@ -21,7 +21,7 @@ Route::post('/registeruser',[UserController::class,'registerUser'])->name('regis
 //reception panel routes here
 
 Route::resource('',PatientController::class);
-Route::get('/patients/search', [PatientController::class, 'search'])->name('patient.search');
+// Route::get('/patients/search', [PatientController::class, 'search'])->name('patient.search');
 // Route::get('/patients/data', [PatientController::class, 'getData'])->name('patient.data');
 
 //master panel route here
@@ -41,7 +41,7 @@ Route::resource('subdept',SubController::class);
 Route::get('/search/sub', [SubController::class, 'search'])->name('sub.search');
 
 Route::resource('test',TestController::class);
-Route::get('/search/test', [TestController::class, 'search'])->name('test.search');
+// Route::get('/search/test', [TestController::class, 'search'])->name('test.search');
 Route::get('/test_rate',[TestController::class,'rateview'])->name('rate');
 Route::get('/help_value',[TestController::class,'helpvalueview'])->name('help_value');
 

@@ -4,24 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Patient;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 
 class PatientController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        // $patientdata = Patient::all();
-        $patientdata = Patient::paginate(5);
+        $patientdata = Patient::all();
         return view('patient.view_patient',compact('patientdata'));
-        // return view('patient.view_patient');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $data1 = Patient::count();
@@ -29,9 +20,6 @@ class PatientController extends Controller
         return view('patient.patient_registration',compact('data'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -69,92 +57,49 @@ class PatientController extends Controller
         $patient->address = $request->address;
         $patient->save();
         return redirect()->route('index')->with('status','Data Successfully Stored!');
-
-
-
-
-
-
-
-        // return $request;
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Patient $patient)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Patient $patient)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Patient $patient)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Patient $patient)
     {
         //
     }
-    // public function getData(Request $request) {
-    //     if ($request->ajax()) {
-    //         $query = $request->input('query');
-    //         $data = Patient::query();
+    // public function search(Request $request)
+    // {
+    //     $query = $request->input('query');
+    //     $data = [];
 
-    //         if ($query !== "") {
-    //             $data->where('user_card_no', 'LIKE', "%{$query}%")
-    //                 ->orWhere('mobile1', 'LIKE', "%{$query}%")
-    //                 ->orWhere('fname', 'LIKE', "%{$query}%");
-    //         }
-
-    //         return DataTables::of($data)
-    //             ->addColumn('action', function ($row) {
-    //                 return '<div class="flex gap-5">
-    //                     <button class="px-2 border text-sm py-1 hover:bg-blue-800 rounded-md bg-blue-700 text-white"><i class="fa-regular fa-address-card fa-xl"></i></button>
-    //                     <button class="px-3 border text-sm py-1 hover:bg-green-800 rounded-md bg-green-700 text-white"><i class="fa-solid fa-inbox fa-lg"></i> </button>
-    //                     <button class="px-3 border text-sm py-1 hover:bg-gray-800 rounded-md bg-gray-700 text-white"><i class="fa-solid fa-receipt fa-lg"></i></button>
-    //                 </div>';
-    //             })
-    //             ->rawColumns(['action'])
-    //             ->make(true);
+    //     if($query !== "") {
+    //         // $data = Department::where('department_name', 'LIKE', "%{$query}%")->get();
+    //         $data = Patient::where('user_card_no', 'LIKE', "%{$query}%")
+    //                         ->orWhere('mobile1', 'LIKE', "%{$query}%")
+    //                         ->orWhere('user_id_type', 'LIKE', "%{$query}%")
+    //                         ->orWhere('mname', 'LIKE', "%{$query}%")
+    //                         ->orWhere('age', 'LIKE', "%{$query}%")
+    //                         ->orWhere('gender', 'LIKE', "%{$query}%")
+    //                         ->orWhere('blood_group', 'LIKE', "%{$query}%")
+    //                         ->orWhere('area', 'LIKE', "%{$query}%")
+    //                         ->orWhere('register_date', 'LIKE', "%{$query}%")
+    //                         ->orWhere('fname', 'LIKE', "%{$query}%")->paginate(5);
     //     }
+    //     else{
+    //         $data = Patient::all();
+    //     }
+
+    //     return view('table.patient', compact('data'));
     // }
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        $data = [];
-
-        if($query !== "") {
-            // $data = Department::where('department_name', 'LIKE', "%{$query}%")->get();
-            $data = Patient::where('user_card_no', 'LIKE', "%{$query}%")
-                            ->orWhere('mobile1', 'LIKE', "%{$query}%")
-                            ->orWhere('user_id_type', 'LIKE', "%{$query}%")
-                            ->orWhere('mname', 'LIKE', "%{$query}%")
-                            ->orWhere('age', 'LIKE', "%{$query}%")
-                            ->orWhere('gender', 'LIKE', "%{$query}%")
-                            ->orWhere('blood_group', 'LIKE', "%{$query}%")
-                            ->orWhere('area', 'LIKE', "%{$query}%")
-                            ->orWhere('register_date', 'LIKE', "%{$query}%")
-                            ->orWhere('fname', 'LIKE', "%{$query}%")->paginate(5);
-        }
-        else{
-            $data = Patient::all();
-        }
-
-        return view('table.patient', compact('data'));
-    }
 }

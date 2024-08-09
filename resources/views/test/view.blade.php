@@ -4,8 +4,80 @@
     Add Test |
 @endsection
 
-@section('body')
-    <div class="flex justify-center items-center">
+@section('content')
+    <div class="container">
+        @if (session('status'))
+            <div class="alert alert-warning d-flex align-items-center justify-content-between" id="customAlert">
+                <strong>{{ session('status') }}</strong>
+                <button type="button" class="bg-danger border-danger text-lg px-2 rounded"
+                    onclick="closeAlert()">&times;</button>
+            </div>
+        @endif
+        <div>
+            <div class="pt-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Search Test and Update</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Test_Id</td>
+                                    <td>Test Name</td>
+                                    <td>Test Price</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @forelse ($tests as $dd)
+                                    <tr>
+                                        <td>{{ $dd->id }}</td>
+                                        <td>{{ $dd->test_name }}</td>
+                                        <td>{{ $dd->test_price }}</td>
+                                        <td class="d-flex">
+                                            <a href="{{ route('dept.edit', $dd->id) }}">
+                                                <button class="btn-outline-primary px-2 border-priary mx-2"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            </a>
+                                            <form action="{{ route('dept.destroy', $dd->id) }}" class="btn-outline-danger px-2 d-flex justify-content-center align-items-center mx-2">
+                                                @csrf
+                                                @method('DELETE')
+                                                <i class="fa-solid fa-trash"></i>
+                                            </form>
+                                            {{-- <a href="{{ route('dept.edit', $dd->id) }}">
+                                                <button title="Edit Test"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+                                            </a>
+                                            <form action="{{ route('dept.destroy', $dd->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <p title="Delete Test" class="form-label">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </p>
+                                            </form> --}}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="text-center">No Test Data Available</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Test_Id</td>
+                                    <td>Test Name</td>
+                                    <td>Test Price</td>
+                                    <td>Action</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- <div class="flex justify-center items-center"> 
         <div class="w-[70%] mt-5">
             <h1 class="text-center font-semibold text-xl">Search Test and Update</h1>
             <hr class="border-blue-800" />
@@ -81,8 +153,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script>
+    </div> --}}
+
+    {{-- <script>
         $(document).ready(function() {
             $('#search').on('keyup', function() {
                 var query = $(this).val();
@@ -99,6 +172,57 @@
                     }
                 });
             });
+        });
+    </script> --}}
+@endsection
+
+{{-- Showing active on side start --}}
+@section('menuopenmaster')
+    menu-open
+@endsection
+@section('activemaster')
+    active
+@endsection
+@section('master1')
+    active
+@endsection
+{{-- till here active showing part ends --}}
+@section('headFile')
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+@endsection
+
+@section('scriptFile')
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script>
+        function closeAlert() {
+            var alert = document.getElementById('customAlert');
+            alert.style.display = 'none';
+        }
+    </script>
+
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>
 @endsection
