@@ -72,9 +72,17 @@
     </div>
 @endsection
 
+{{-- Showing active on side start --}}
 @section('menuopenreception')
-    menu-open
+    menu-open 
 @endsection
+@section('activereception')
+    active
+@endsection
+@section('viewpatientactive')
+    active
+@endsection
+{{-- till here active showing part ends --}}
 
 @section('headFile')
     <!-- DataTables -->

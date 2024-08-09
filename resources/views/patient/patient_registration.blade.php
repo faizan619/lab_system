@@ -4,13 +4,131 @@
     Home |
 @endsection
 
-@section('body')
-    <div class="flex justify-center mt-3">
+@section('content')
+    <div class="container pt-3">
+        <h5 class="lead">Patient Registration</h5>
+        <div class="dropdown-divider border-primary"></div>
+        <form action="{{ route('store') }}" method="POST">
+            @csrf
+            <div class="row py-1 px-3">
+                <div title="Patient Id : {{ $data }}" class="col-md-2">
+                    <label for="patient_no" class="form-label">Patient's id</label>
+                    <input type="number" disabled value="{{ $data }}" id="patient_no" class="form-control">
+                </div>
+                <div class="col-md-4 ">
+                    <label title="Card type" for="id_type" class="form-label">Select Id Type</label>
+                    <select name="user_id_type" id="id_type" class="form-control" required>
+                        <option value="aadhar">Aadhar Card</option>
+                        <option value="pan">Pan Card</option>
+                    </select>
+                    @if ($errors->any())
+                        <span class="">
+                            @error('user_id_type')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-6 ">
+                    <label title="Card Number" for="aadhar" class="form-label">
+                        Enter Card Number
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" name="user_card_no" value="{{ old('user_card_no') }}" id="aadhar"
+                        placeholder="**** **** 6244" class="form-control">
+                    @if ($errors->any())
+                        <span class="">
+                            @error('user_card_no')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    @endif
+
+
+                </div>
+            </div>
+            <div class="row py-1 px-3">
+                <div class="col-md-1">
+                    <label title="User Title" for="title" class="form-label">
+                        Title<span class="text-danger ">*</span>
+                    </label>
+                    <select name="title" id="title" class="form-control" required>
+                        <option value="mr">Mr.</option>
+                        <option value="mrs">Mrs.</option>
+                    </select>
+                    @if ($errors->any())
+                        <span class="">
+                            @error('title')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-4">
+                    <label title="First Name" for="fname" class="form-label">
+                        First Name<span class="text-danger">*</span>
+                    </label>
+                    <input type="text" name="fname" value="{{ old('fname') }}" class="form-control"
+                        placeholder="First Name" id="fname">
+                    @if ($errors->any())
+                        <span class="">
+                            @error('fname')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-4">
+                    <label title="Middle Name" for="mname" class="form-label">Middle Name</label>
+                    <input type="text" name="mname" value="{{ old('mname') }}" class="form-control" placeholder="Middle Name" id="mname">
+                    @if ($errors->any())
+                        <span class="">
+                            @error('mname')
+                                {{ $message }}
+                            @enderror
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-3">
+                    <label title="Last Name" for="lname" class="form-label">Last Name</label>
+                        <input type="text" name="lname" value="{{old('lname')}}" class="form-control" placeholder="Last Name" id="lname">
+                        @if ($errors->any())
+                            <span class="">
+                                @error('lname')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        @endif
+                </div>
+            </div>
+            <div class="row py-1 px-3">
+                <div class="col-md-3 border">
+                    <label title="Date Of Birth" for="dob" class="">
+                        <p>D.O.B <span class="text-danger">*</span></p>
+                        <input type="date" name="dob" id="dob" value="{{old('dob')}}" class="form-control">
+                        @if ($errors->any())
+                            <span class="">
+                                @error('dob')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        @endif
+                    </label>
+                </div>
+                <div class="col-md-3 border">col 3</div>
+                <div class="col-md-3 border">col 3</div>
+                <div class="col-md-3 border">col 3</div>
+            </div>
+            <div>forth div</div>
+            <div>fifth div</div>
+        </form>
+
+    </div>
+    {{-- <div class="flex justify-center mt-3">
         <div class="w-[70%]">
             <h1 class="font-bold text-2xl text-center text-blue-600 mb-2">Patient Registration</h1>
 
             <hr class="border-blue-500">
-            {{-- <br> --}}
             <form action="{{ route('store') }}" method="POST" class="w-full flex flex-col gap-3 p-1">
                 @csrf
                 <div class="flex gap-5 ">
@@ -283,5 +401,23 @@
 
             </form>
         </div>
-    </div>
+    </div> --}}
+@endsection
+
+{{-- Showing active on side start --}}
+@section('menuopenreception')
+    menu-open
+@endsection
+@section('activereception')
+    active
+@endsection
+@section('patientregistrationactive')
+    active
+@endsection
+{{-- till here active showing part ends --}}
+
+@section('headFile')
+@endsection
+
+@section('scriptFile')
 @endsection

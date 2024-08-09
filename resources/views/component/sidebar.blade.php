@@ -26,37 +26,37 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="user.profile" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Dashboard</p>
                     </a>
-                </li>
-                <li class="nav-item menu-open">
-                    <span class="nav-link">
+                </li> --}}
+                <li class="nav-item @yield('menuopenreception')">
+                    <a href="#" class="nav-link @yield('activereception')">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Reception Panel
                             <i class="right fas fa-angle-left"></i>
                         </p>
-                    </span>
+                    </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('create') }}" class="nav-link active">
+                            <a href="{{ route('create') }}" class="nav-link @yield('patientregistrationactive')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Patient Registration</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('index') }}" class="nav-link">
+                            <a href="{{ route('index') }}" class="nav-link @yield('viewpatientactive')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View Patient's Record</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                <li class="nav-item @yield('menuopensearch')">
+                    <a href="#" class="nav-link @yield('active')">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             {{-- <span class="badge badge-danger navbar-badge">3</span> --}}
@@ -109,7 +109,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item @yield('menuopenmaster')">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
