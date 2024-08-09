@@ -1,9 +1,8 @@
-  <!-- /.content-wrapper -->
   <footer class="main-footer">
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-      All rights reserved.
+      <strong>Build and Maintained By <a target="_faizan" href="https://www.deltasoftsys.in/">DeltaSoft Systems</a>
+          Vasai</strong>
       <div class="float-right d-none d-sm-inline-block">
-          <b>Version</b> 3.2.0
+          <b>Version</b> 1.0.0
       </div>
   </footer>
 
@@ -13,7 +12,6 @@
   </aside>
   <!-- /.control-sidebar -->
   </div>
-  <!-- ./wrapper -->
 
   <!-- jQuery -->
   <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
@@ -46,18 +44,14 @@
   <!-- AdminLTE App -->
   <script src="{{ asset('adminlte/dist/js/adminlte.js') }}"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
+  {{-- <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script> --}}
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="{{ asset('adminlte/dist/js/pages/dashboard.js') }}"></script>
+  {{-- <script src="{{ asset('adminlte/dist/js/pages/dashboard.js') }}"></script> --}}
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js" integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"
+      integrity="sha512-6sSYJqDreZRZGkJ3b+YfdhB3MzmuP9R7X1QZ6g5aIXhRvR1Y/N/P47jmnkENm7YL3oqsmI6AK+V6AD99uWDnIw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 
   </html>
-
-  {{-- <div class="flex justify-center items-center bg-blue-900 text-white h-12 w-full">
-    <div>
-        Build and Maintained By <a class="hover:underline" target="_faizan" href="https://www.deltasoftsys.in/">DeltaSoft Systems Vasai</a>
-    </div>
-</div> --}}
