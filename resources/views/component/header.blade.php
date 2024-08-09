@@ -27,7 +27,7 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('adminlte/plugins/summernote/summernote-bs4.min.css')}}">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
