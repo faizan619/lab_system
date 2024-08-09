@@ -5,12 +5,6 @@
           <b>Version</b> 1.0.0
       </div>
   </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
   </div>
 
   <!-- jQuery -->
@@ -47,7 +41,7 @@
   {{-- <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script> --}}
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   {{-- <script src="{{ asset('adminlte/dist/js/pages/dashboard.js') }}"></script> --}}
-  
+
 
   @yield('scriptFile')
 

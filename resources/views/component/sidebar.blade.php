@@ -110,7 +110,7 @@
                     </ul>
                 </li>
                 <li class="nav-item @yield('menuopenmaster')">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link @yield('activemaster')">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Master Panel
@@ -119,79 +119,79 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('test.index') }}" class="nav-link">
+                            <a href="{{ route('test.index') }}" class="nav-link @yield('master1')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Test Name</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('parameter.index') }}" class="nav-link">
+                            <a href="{{ route('parameter.index') }}" class="nav-link @yield('master2')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Test Parameter</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('dept.index') }}" class="nav-link">
+                            <a href="{{ route('dept.index') }}" class="nav-link @yield('master3')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Main Department</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('subdept.index') }}" class="nav-link">
+                            <a href="{{ route('subdept.index') }}" class="nav-link @yield('master4')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Sub Department</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">
+                            <a href="{{ route('register') }}" class="nav-link @yield('master5')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>User Registration</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('doc_ref_form') }}" class="nav-link">
+                            <a href="{{ route('doc_ref_form') }}" class="nav-link @yield('master6')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create Doctor Reference</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('center_ref_form') }}" class="nav-link">
+                            <a href="{{ route('center_ref_form') }}" class="nav-link @yield('master7')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Create Center Reference</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('dept.create') }}" class="nav-link">
+                            <a href="{{ route('dept.create') }}" class="nav-link @yield('master8')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Department</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('subdept.create') }}" class="nav-link">
+                            <a href="{{ route('subdept.create') }}" class="nav-link @yield('master9')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Sub Department</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('test.create') }}" class="nav-link">
+                            <a href="{{ route('test.create') }}" class="nav-link @yield('master10')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add New Test</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('parameter.create') }}" class="nav-link">
+                            <a href="{{ route('parameter.create') }}" class="nav-link @yield('master11')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Test Parameter</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('help_value') }}" class="nav-link">
+                            <a href="{{ route('help_value') }}" class="nav-link @yield('master12')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Help Value</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('rate') }}" class="nav-link">
+                            <a href="{{ route('rate') }}" class="nav-link @yield('master13')">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Test Rate</p>
                             </a>
